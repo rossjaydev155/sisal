@@ -6,6 +6,7 @@ import 'package:html/parser.dart' show parse;
 import 'package:sisal/common/l10n/l10n.dart';
 import 'package:sisal/ui/screen/feed/cubit/feed_cubit.dart';
 import 'package:sisal/ui/screen/feed/cubit/feed_cubit/feed_state.dart';
+import 'package:sisal/ui/widgets/webview_screen.dart';
 
 String decodeHtml(String html) {
   final document = parse(html);
@@ -36,59 +37,68 @@ class FeedPage extends StatelessWidget {
                   final item = state.items[index];
                   return Column(
                     children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: 8,
-                          horizontal: 8,
-                        ), // Aggiunge spaziatura tra gli elementi
-                        child: Row(
-                          crossAxisAlignment:
-                              CrossAxisAlignment.start, // Allinea in alto
-                          children: [
-                            // Spaziatura tra immagine e test
-                            Image.network(
-                              item.thumbnail,
-                              width: 150, // Larghezza fissa
-                              height: 150, // Altezza fissa (personalizza)
-                              fit: BoxFit.cover, // Riempie proporzionalmente
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  WebViewScreen(url: item.link),
                             ),
-                            const SizedBox(
-                              width: 10,
-                            ), // Spaziatura tra immagine e testo
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    decodeHtml(item.title),
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 14,
-                                      color: textColor,
-                                    ),
-                                  ),
-                                  const SizedBox(height: 5),
-                                  Text(
-                                    decodeHtml(
-                                      item.description.length > 50
-                                          ? item.description.substring(0, 50) +
-                                              '...'
-                                          : item.description,
-                                    ),
-                                    style: TextStyle(
-                                      fontSize: 13,
-                                      color: textColor,
-                                    ),
-                                  ),
-                                ],
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 8,
+                            horizontal: 8,
+                          ),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Image.network(
+                                item.thumbnail,
+                                width: 150,
+                                height: 150,
+                                fit: BoxFit.cover,
                               ),
-                            ),
-                          ],
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      decodeHtml(item.title),
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        fontSize: 14,
+                                        color: textColor,
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    Text(
+                                      decodeHtml(
+                                        item.description.length > 50
+                                            ? item.description
+                                                    .substring(0, 50) +
+                                                '...'
+                                            : item.description,
+                                      ),
+                                      style: TextStyle(
+                                        fontSize: 13,
+                                        color: textColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
                       ),
                       Divider(
-                        color: Theme.of(context)
-                            .dividerColor, // Usa il colore del tema
+                        color: Theme.of(context).dividerColor,
                         thickness: 1,
                       ),
                     ],
