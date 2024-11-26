@@ -1,6 +1,5 @@
-import 'package:sisal/bootstrap.dart';
-import 'package:sisal/ui/screen/app/app.dart';
+import 'package:sisal/main_development.dart' as entrypoint;
 
 void main() {
-  bootstrap(() async => const App());
+  entrypoint.main();
 }

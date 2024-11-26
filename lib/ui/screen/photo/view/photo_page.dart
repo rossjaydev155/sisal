@@ -6,8 +6,8 @@ import 'package:sisal/common/l10n/l10n.dart';
 import 'package:sisal/domain/repositories/photo_repository.dart';
 import 'package:sisal/ui/screen/photo/cubit/photo_cubit.dart';
 
-class PhotoScreen extends StatelessWidget {
-  const PhotoScreen({super.key});
+class PhotoPage extends StatelessWidget {
+  const PhotoPage({super.key});
 
   @override
   Widget build(BuildContext context) {

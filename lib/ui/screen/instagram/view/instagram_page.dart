@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:sisal/common/l10n/l10n.dart';
 import 'package:sisal/ui/screen/instagram/cubit/instagram_cubit.dart';
 
-class InstagramScreen extends StatelessWidget {
-  const InstagramScreen({super.key});
+class InstagramPage extends StatelessWidget {
+  const InstagramPage({super.key});
 
   @override
   Widget build(BuildContext context) {

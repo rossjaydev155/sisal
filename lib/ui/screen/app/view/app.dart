@@ -12,6 +12,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
         appBarTheme: const AppBarTheme(
@@ -26,12 +27,15 @@ class App extends StatelessWidget {
           ),
         ),
         colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color(0xFFC5D932),
+          seedColor: const Color(0xFFD91A1A),
         ),
       ),
       darkTheme: ThemeData.dark().copyWith(
         appBarTheme: const AppBarTheme(
           backgroundColor: Color(0xFF025930), // Versione scura.
+        ),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color(0xFFC5D932),
         ),
       ),
       localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -52,9 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const FeedScreen(),
-    const InstagramScreen(),
-    const PhotoScreen(),
+    const FeedPage(),
+    const InstagramPage(),
+    const PhotoPage(),
   ];
 
   @override
