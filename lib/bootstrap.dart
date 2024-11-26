@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:developer';
 
-import 'package:bloc/bloc.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:sisal/domain/repositories/feed_repository.dart';
+import 'package:sisal/ui/screen/feed/cubit/feed_cubit.dart';
 
 class AppBlocObserver extends BlocObserver {
   const AppBlocObserver();
@@ -20,14 +22,24 @@ class AppBlocObserver extends BlocObserver {
   }
 }
 
-Future<void> bootstrap(FutureOr<Widget> Function() builder) async {
-  FlutterError.onError = (details) {
-    log(details.exceptionAsString(), stackTrace: details.stack);
-  };
+Future<void> bootstrap(Future<Widget> Function() builder) async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-  Bloc.observer = const AppBlocObserver();
+  final feedRepository = FeedRepository();
 
-  // Add cross-flavor configuration here
-
-  runApp(await builder());
+  runApp(
+    MultiRepositoryProvider(
+      providers: [
+        RepositoryProvider<FeedRepository>.value(value: feedRepository),
+      ],
+      child: MultiBlocProvider(
+        providers: [
+          BlocProvider<FeedCubit>(
+            create: (context) => FeedCubit(feedRepository),
+          ),
+        ],
+        child: await builder(),
+      ),
+    ),
+  );
 }

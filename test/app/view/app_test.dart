@@ -1,6 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
-import 'package:sisal/app/app.dart';
 import 'package:sisal/counter/counter.dart';
+import 'package:sisal/ui/screen/app/app.dart';
 
 void main() {
   group('App', () {

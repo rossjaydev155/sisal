@@ -1,0 +1,19 @@
+{
+    "@@locale": "it",
+    "counterAppBarTitle": "Counter",
+    "@counterAppBarTitle": {
+        "description": "Text shown in the AppBar of the Counter Page"
+    },
+    "photoAppBarTitle": "Aggiungi una foto",
+    "@photoAppBarTitle": {
+        "description": "Add a photo"
+    },
+    "instagramAppBarTitle": "Apri Instagram",
+    "@instagramAppBarTitle": {
+        "description": "Open Instagram"
+    },
+    "feedRSSAppBarTitle": "Feed RSS",
+    "@feedRSSAppBarTitle": {
+        "description": "Feed RSS"
+    }
+}
