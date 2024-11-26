@@ -40,7 +40,7 @@ class FeedPage extends StatelessWidget {
                               style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
                       subtitle: Text(decodeHtml(item.description.length > 50
                                 ? item.description.substring(0, 50) + '...'
-                                : item.description,), style: const TextStyle(fontSize: 14)),
+                                : item.description,), style: const TextStyle(fontSize: 14),),
                       onTap: () {
                         Navigator.push(
                           context,

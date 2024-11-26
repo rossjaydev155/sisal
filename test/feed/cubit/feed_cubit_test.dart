@@ -5,8 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:sisal/domain/models/rss_item.dart';
 import 'package:sisal/domain/repositories/feed_repository.dart';
-import 'package:sisal/ui/screen/feed/cubit/feed_cubit/feed_state.dart';
 import 'package:sisal/ui/screen/feed/cubit/feed_cubit.dart';
+import 'package:sisal/ui/screen/feed/cubit/feed_cubit/feed_state.dart';
 
 class MockFeedRepository extends Mock implements FeedRepository {}
 
@@ -46,7 +46,7 @@ void main() {
                     link: 'https://example.com/2',
                     thumbnail: 'https://example.com/image2.png',
                   ),
-                ]);
+                ],);
         return feedCubit;
       },
       act: (cubit) => cubit.fetchFeed(),
