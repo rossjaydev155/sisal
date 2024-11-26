@@ -27,14 +27,28 @@ class App extends StatelessWidget {
           ),
         ),
         colorScheme: ColorScheme.fromSeed(
+          onPrimary: Colors.black,
           seedColor: const Color(0xFFD91A1A),
+        ),
+        textTheme: const TextTheme(
+          bodyLarge: TextStyle(color: Colors.black),
+          bodyMedium: TextStyle(color: Colors.black54),
         ),
       ),
       darkTheme: ThemeData.dark().copyWith(
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFF025930), // Versione scura.
+          backgroundColor: Color(0xFF025930),
+          titleTextStyle: TextStyle(
+            color: Colors.white, // Colore del testo nella barra.
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+          ), // Versione scura.
+        ),
+        iconTheme: const IconThemeData(
+            color: Colors.white, // Colore delle icone nella barra.
         ),
         colorScheme: ColorScheme.fromSeed(
+           onPrimary: Colors.white,
           seedColor: const Color(0xFFC5D932),
         ),
       ),

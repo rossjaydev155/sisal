@@ -7,6 +7,7 @@ import 'package:sisal/common/l10n/l10n.dart';
 import 'package:sisal/ui/screen/feed/cubit/feed_cubit.dart';
 import 'package:sisal/ui/screen/feed/cubit/feed_cubit/feed_state.dart';
 import 'package:sisal/ui/widgets/webview_screen.dart';
+import 'package:flutter/material.dart';
 
 String decodeHtml(String html) {
   final document = parse(html);
@@ -19,6 +20,8 @@ class FeedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
+    final textColor = Theme.of(context).colorScheme.onPrimary;
+
     return Scaffold(
       appBar: AppBar(title: Text(l10n.feedRSSAppBarTitle)),
       body: BlocProvider(
@@ -35,12 +38,17 @@ class FeedPage extends StatelessWidget {
                   return Column(
                   children: [
                     ListTile(
-                      leading: Image.network(item.thumbnail, width: 80, height: 120, fit: BoxFit.fitHeight),
+                      leading: Image.network(item.thumbnail, height: 400, width: 150, fit: BoxFit.scaleDown, ),
                       title: Text(decodeHtml(item.title),
-                              style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),),
+                              style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 14,
+                                      color: textColor),),
                       subtitle: Text(decodeHtml(item.description.length > 50
                                 ? item.description.substring(0, 50) + '...'
-                                : item.description,), style: const TextStyle(fontSize: 14),),
+                                : item.description), style: TextStyle(
+                                                              fontSize: 13,
+                                                              color: textColor,),),
                       onTap: () {
                         Navigator.push(
                           context,

@@ -11,6 +11,10 @@
 		<string>en</string>
 		<string>es</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>instagram</string>
+    </array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
