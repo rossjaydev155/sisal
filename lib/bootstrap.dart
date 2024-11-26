@@ -45,7 +45,7 @@ Future<void> bootstrap(Future<Widget> Function() builder) async {
           BlocProvider<InstagramCubit>(create: (_) => InstagramCubit()),
           BlocProvider<PhotoCubit>(
               create: (context) =>
-                  PhotoCubit(context as PhotoRepository)), // InstagramCubit
+                  PhotoCubit(context as PhotoRepository),), // InstagramCubit
         ],
         child: await builder(),
       ),

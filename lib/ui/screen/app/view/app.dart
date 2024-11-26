@@ -89,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.rss_feed), label: 'Feed'),
           BottomNavigationBarItem(
-              icon: Icon(Icons.camera_alt), label: 'Instagram'),
+              icon: Icon(Icons.camera_alt), label: 'Instagram',),
           BottomNavigationBarItem(icon: Icon(Icons.photo), label: 'Foto'),
         ],
       ),

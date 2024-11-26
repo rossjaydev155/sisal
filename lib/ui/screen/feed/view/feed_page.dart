@@ -38,9 +38,9 @@ class FeedPage extends StatelessWidget {
                     children: [
                       Padding(
                         padding: const EdgeInsets.symmetric(
-                            vertical: 8,
-                            horizontal:
-                                8), // Aggiunge spaziatura tra gli elementi
+                          vertical: 8,
+                          horizontal: 8,
+                        ), // Aggiunge spaziatura tra gli elementi
                         child: Row(
                           crossAxisAlignment:
                               CrossAxisAlignment.start, // Allinea in alto
@@ -53,7 +53,8 @@ class FeedPage extends StatelessWidget {
                               fit: BoxFit.cover, // Riempie proporzionalmente
                             ),
                             const SizedBox(
-                                width: 10), // Spaziatura tra immagine e testo
+                              width: 10,
+                            ), // Spaziatura tra immagine e testo
                             Expanded(
                               child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
