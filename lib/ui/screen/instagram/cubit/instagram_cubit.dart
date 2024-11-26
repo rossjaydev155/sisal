@@ -1,6 +1,9 @@
-import 'package:bloc/bloc.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'dart:io' as io;
+
+import 'package:bloc/bloc.dart';
+import 'package:sisal/common/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:sisal/common/constants.dart';
 
 // Definizione degli stati
 enum InstagramState { initial, loading, success, failure }
@@ -12,10 +15,10 @@ class InstagramCubit extends Cubit<InstagramState> {
     emit(InstagramState.loading); // Stato di caricamento
 
     // URL per Android e iOS
-    const androidAppUrl = 'instagram://app';
-    const iosAppUrl = 'instagram://app';
-    const storeUrl = 'https://play.google.com/store/apps/details?id=com.instagram.android';
-    const iosStoreUrl = 'https://apps.apple.com/app/instagram/id389801252';
+    final androidAppUrl = Constants.androidAppUrl;
+    final iosAppUrl = Constants.iosAppUrl;
+    final storeUrl = Constants.storeUrl;
+    final iosStoreUrl = Constants.iosStoreUrl;
 
     try {
       if (io.Platform.isAndroid) {
@@ -24,7 +27,8 @@ class InstagramCubit extends Cubit<InstagramState> {
           await launchUrl(Uri.parse(androidAppUrl));
           emit(InstagramState.success); // Successo
         } else {
-          await launchUrl(Uri.parse(storeUrl), mode: LaunchMode.externalApplication);
+          await launchUrl(Uri.parse(storeUrl),
+              mode: LaunchMode.externalApplication);
           emit(InstagramState.success); // Successo (ha aperto lo store)
         }
       } else if (io.Platform.isIOS) {
@@ -33,7 +37,8 @@ class InstagramCubit extends Cubit<InstagramState> {
           await launchUrl(Uri.parse(iosAppUrl));
           emit(InstagramState.success); // Successo
         } else {
-          await launchUrl(Uri.parse(iosStoreUrl), mode: LaunchMode.externalApplication);
+          await launchUrl(Uri.parse(iosStoreUrl),
+              mode: LaunchMode.externalApplication);
           emit(InstagramState.success); // Successo (ha aperto lo store)
         }
       }

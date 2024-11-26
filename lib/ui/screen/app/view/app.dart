@@ -8,7 +8,7 @@ import 'package:sisal/ui/screen/photo/view/photo_page.dart';
 
 class App extends StatelessWidget {
   const App({super.key});
-  
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -45,10 +45,10 @@ class App extends StatelessWidget {
           ), // Versione scura.
         ),
         iconTheme: const IconThemeData(
-            color: Colors.white, // Colore delle icone nella barra.
+          color: Colors.white, // Colore delle icone nella barra.
         ),
         colorScheme: ColorScheme.fromSeed(
-           onPrimary: Colors.white,
+          onPrimary: Colors.white,
           seedColor: const Color(0xFFC5D932),
         ),
       ),
@@ -88,11 +88,13 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.rss_feed), label: 'Feed'),
-          BottomNavigationBarItem(icon: Icon(Icons.camera_alt), label: 'Instagram'),
+          BottomNavigationBarItem(
+              icon: Icon(Icons.camera_alt), label: 'Instagram'),
           BottomNavigationBarItem(icon: Icon(Icons.photo), label: 'Foto'),
         ],
       ),
     );
   }
 }
+
 void main() => runApp(const App());
